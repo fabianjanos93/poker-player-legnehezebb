@@ -12,7 +12,7 @@ class Player {
         holeCards = player.hole_cards;
       }
     }
-    bet(player.stack);
+    if (checkBothCards(card1, card2)) {bet(player.stack);}
   }
 
   static showdown(gameState) {
@@ -23,7 +23,7 @@ module.exports = Player;
 
 let player;
 let cards;
-let card2;
+let card1;
 let card2;
 
 function getPlayer(game) {
@@ -62,7 +62,7 @@ function checkSecondCard(card2) {
 }
 
 //returns true if one of the two cards are good, or we have a pair
-function checekBothCards(card1, card2) {
+function checkBothCards(card1, card2) {
   if (checkFirstCard(card1) || checkSecondCard(card2)) {
     return true;
   }
