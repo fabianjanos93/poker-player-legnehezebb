@@ -1,17 +1,17 @@
+let player;
+let cards;
+let card1;
+let card2;
+
+///////////////////////////////////////////////////////////////////////
 class Player {
   static get VERSION() {
-    return '0.4.2';
+    return '0.4.3';
   }
 
   static betRequest(gameState, bet) {
-    bet(200);
     let Game = gameState.parse();
     let holeCards;
-    for (let player of Game.players) {
-      if (player.name === "Legnehezebb") {
-        holeCards = player.hole_cards;
-      }
-    }
 
     let checkedPair = false;
     for (let player of Game.players) {
@@ -27,6 +27,9 @@ class Player {
   static showdown(gameState) {
   }
 }
+///////////////////////////////////////////////////////////////////////
+////////////////////////OUR FUNCTIONS//////////////////////////////////
+///////////////////////////////////////////////////////////////////////
 
 function actualHighestBet(game){
   let max = 0;
@@ -50,28 +53,20 @@ function teamBetsAndCards(Game) {
 }
 
 
-let player;
 
 function getPlayer(game) {
   for (let p in game.players) {
-    if (player.name === "Legnehezebb") {
+    if (p.name === "Legnehezebb") {
       player = p;
     }
   }
-  getCards(player);
 }
 
-let cards;
-let card1;
-let card2;
 
 function getCards(player) {
-  cards = Player.hole_cards;
+  cards = player.hole_cards;
   card1 = cards[0];
   card2= cards[1];
-  cards = player.hole_cards;
-  card2 = cards[0];
-  card2 = cards[1];
 }
 
 function checkFirstCard(card1) {
