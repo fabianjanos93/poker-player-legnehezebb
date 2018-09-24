@@ -8,13 +8,13 @@ let card2;
 ///////////////////////////////////////////////////////////////////////
 class Player {
   static get VERSION() {
-    return '0.4.3';
+    return '0.4.4';
   }
 
   static betRequest(gameState, bet) {
     console.log(gameState);
     Game = gameState;
-    player = getPlayer(Game);
+    player = gameState.players[gameState.in_action];
     cards = getCards(player);
     bet(1000);
     card1 = cards[0];
