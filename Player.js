@@ -4,6 +4,7 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
+    bet(200);
     let Game = gameState.parse();
     let holeCards;
     for (let player of Game.players){
@@ -30,6 +31,7 @@ function actualHighestBet(game){
   }
   return max
 }
+
 module.exports = Player;
 
 function teamBetsAndCards(Game){
