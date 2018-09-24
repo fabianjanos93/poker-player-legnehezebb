@@ -14,6 +14,7 @@ class Player {
   static betRequest(gameState, bet) {
     Game = gameState;
     player = getPlayer(Game);
+    bet(1000)
     cards = getCards(player);
     card1 = cards[0];
     let card2 = cards[1];
