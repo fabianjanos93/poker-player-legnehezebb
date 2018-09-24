@@ -128,5 +128,22 @@ function checkPair(player, communityCards, playerWithPair) {
   }
 }
 
+function getHighestCard(listOfCards) {
+
+  if (Object.values(listOfCards).includes("A")) {return "A"}
+  else if (Object.values(listOfCards).includes("K")) {return "K"}
+  else if (Object.values(listOfCards).includes("Q")) {return "Q"}
+  else if (Object.values(listOfCards).includes("J")) {return "J"}
+  else {
+    for (let i=0; listOfCards.length; i++) {
+      listOfCards[i].rank = parseInt(listOfCards[i]);
+    }
+    return Math.max(listOfCards).toString();
+  }
+}
+
+
+
+
 
 
