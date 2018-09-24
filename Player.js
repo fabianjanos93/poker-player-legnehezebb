@@ -5,6 +5,11 @@ let card1;
 let card2;
 
 
+//////////////////FLAGS////////////////////////////////////////////////
+
+let pairFlag = false;
+
+
 ///////////////////////////////////////////////////////////////////////
 class Player {
   static get VERSION() {
@@ -16,7 +21,6 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
-    let pairFlag = true;
 
     if (pairFlag) {
       let playerWithPair = [];
