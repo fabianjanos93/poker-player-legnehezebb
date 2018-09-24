@@ -49,11 +49,10 @@ let player;
 
 function getPlayer(game) {
   for (let p in game.players) {
-    if (player.name === "Legnehezebb") {
+    if (p.name === "Legnehezebb") {
       player = p;
     }
   }
-  getCards(player);
 }
 
 let cards;
@@ -61,7 +60,7 @@ let card1;
 let card2;
 
 function getCards(player) {
-  cards = Player.hole_cards;
+  cards = player.hole_cards;
   card1 = cards[0];
   card2= cards[1];
 }
