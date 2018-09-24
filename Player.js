@@ -8,7 +8,7 @@ let card2;
 ///////////////////////////////////////////////////////////////////////
 class Player {
   static get VERSION() {
-    return '1.0';
+    return '0.4.4';
   }
 
   static betRequest(gameState, bet) {
@@ -16,7 +16,7 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
-    if (doWehavePair() || doWehavePair(Game) ) {
+    if (checkBothCards(card1, card2) || doWehavePair(Game) ) {
       bet(player.stack);
     }
     bet(12);
