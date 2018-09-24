@@ -19,6 +19,15 @@ class Player {
   }
 }
 
+function actualHighestBet(game){
+  let max = 0;
+  for(i = 0; i<6 ; i++){
+    let playerInCheck = game.players[i].bet;
+    if (playerInCheck>max);
+      max = playerInCheck;
+  }
+  return max
+}
 module.exports = Player;
 
 let player;
