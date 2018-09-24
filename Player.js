@@ -16,17 +16,8 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
-
-    let pairFlag = false
-    if (pairFlag) {
-      let playerWithPair = [];
-      for (let player of Game.players) {
-        checkPair(player, Game.community_cards, playerWithPair)
-      }
-    }
-
-
-    if (checkBothCards(card1, card2)) {
+    
+    if (checkBothCards(card1, card2) || doWehavePair(Game)) {
       bet(player.stack);
     }
     bet(0);
@@ -35,6 +26,7 @@ class Player {
   static showdown(gameState) {
   }
 }
+
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////OUR FUNCTIONS//////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
@@ -130,6 +122,25 @@ function checkPair(player, communityCards, playerWithPair) {
     }
   }
 }
+
+function doWehavePair(Game) {
+  let playerWithPair = [];
+  for (let player of Game.players) {
+    checkPair(player, Game.community_cards, playerWithPair)
+  }
+  if (playerWithPair) {
+    for (let elem of playerWithPair) {
+      if (elem.name === "Legnehezebb") {
+        return true;
+      }
+    }
+  } else {
+    return false;
+  }
+}
+
+
+
 
 
 
