@@ -1,6 +1,6 @@
 class Player {
   static get VERSION() {
-    return '0.4';
+    return '0.4.1';
   }
 
   static betRequest(gameState, bet) {
@@ -59,7 +59,7 @@ let card1;
 let card2;
 
 function getCards(player) {
-  cards = player.hole_cards;
+  cards = Player.hole_cards;
   card1 = cards[0];
   card2= cards[1];
 }
@@ -86,7 +86,7 @@ function checkSecondCard(card2) {
 
 //returns true if one of the two cards are good, or we have a pair
 function checkBothCards(card1, card2) {
-  getPlayer();
+
   if (checkFirstCard(card1) || checkSecondCard(card2)) {
     return true;
   }
