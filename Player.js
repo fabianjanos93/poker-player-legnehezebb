@@ -16,10 +16,12 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
-    if (checkBothCards(card1, card2) || doWehavePair(Game) ) {
+    if (doWehavePair(Game) ) {
       bet(player.stack);
     }
-    bet(12);
+    if (checkBothCards(card1, card2))
+      bet(200);
+    bet(15);
   }
 
   static showdown(gameState) {
