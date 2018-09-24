@@ -4,7 +4,7 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    bet(100);
+    bet(1000);
     let Game = gameState.parse();
     let holeCards;
     for (let player of Game.players){
@@ -12,6 +12,7 @@ class Player {
         holeCards = player.hole_cards;
       }
     }
+    bet(player.stack);
   }
 
   static showdown(gameState) {
