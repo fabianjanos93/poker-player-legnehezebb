@@ -16,7 +16,6 @@ class Player {
     Game = gameState;
     player = getPlayer(Game);
     cards = getCards(player);
-    bet(1000);
     card1 = cards[0];
     let card2 = cards[1];
 
@@ -57,7 +56,7 @@ function teamBetsAndCards(Game){
 }
 
 function getPlayer(game) {
-  for (let p in game.players) {
+  for (let p in game.get('players')) {
     if (p.name === "Legnehezebb") {
       player = p;
     }
