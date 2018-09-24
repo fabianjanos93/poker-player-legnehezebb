@@ -1,22 +1,26 @@
+let Game;
 let player;
 let cards;
 let card1;
 let card2;
 
+
 ///////////////////////////////////////////////////////////////////////
 class Player {
   static get VERSION() {
-    return '0.4.3';
+    return '0.4.4';
   }
 
   static betRequest(gameState, bet) {
-    let Game = gameState.parse();
-    let holeCards;
+    Game = gameState;
+    player = gameState.players[gameState.in_action];
+    cards = getCards(player);
 
     let playerWithPair = [];
     for (let player of Game.players) {
       checkPair(player, Game.community_cards, playerWithPair)
     }
+
 
 
     if (checkBothCards(card1, card2)) {
@@ -28,7 +32,6 @@ class Player {
   static showdown(gameState) {
   }
 }
-
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////OUR FUNCTIONS//////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
@@ -65,9 +68,8 @@ function getPlayer(game) {
 
 
 function getCards(player) {
-  cards = player.hole_cards;
-  card1 = cards[0];
-  card2 = cards[1];
+  card1 = player.hole_cards[0];
+  card2 = player.hole_cards[1];
 }
 
 function checkFirstCard(card1) {
