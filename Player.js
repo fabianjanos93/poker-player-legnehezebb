@@ -12,7 +12,7 @@ class Player {
         holeCards = player.hole_cards;
       }
     }
-    bet(player.stack);
+    if (checkBothCards(card1, card2)) {bet(player.stack);}
   }
 
   static showdown(gameState) {
@@ -31,6 +31,9 @@ function actualHighestBet(game){
 module.exports = Player;
 
 let player;
+let cards;
+let card1;
+let card2;
 
 function getPlayer(game) {
   for (let p in game) {
@@ -38,4 +41,43 @@ function getPlayer(game) {
       player = p;
     }
   }
+  getCards(player);
 }
+
+function getCards(player) {
+  cards = player.hole_cards;
+  card2 = cards[0];
+  card2= cards[1];
+}
+
+function checkFirstCard(card1) {
+  switch (card1.rank) {
+    case card2.rank: return true;
+    case "A": return true;
+    case "Q": return true;
+    case "K": return true;
+  }
+  return false;
+}
+
+function checkSecondCard(card2) {
+  switch (card2.rank) {
+    case card1.rank: return true;
+    case "A": return true;
+    case "Q": return true;
+    case "K": return true;
+  }
+  return false;
+}
+
+//returns true if one of the two cards are good, or we have a pair
+function checkBothCards(card1, card2) {
+  if (checkFirstCard(card1) || checkSecondCard(card2)) {
+    return true;
+  }
+  return false;
+}
+
+
+
+
