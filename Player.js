@@ -7,12 +7,21 @@ class Player {
     bet(100);
     let Game = gameState.parse();
     let holeCards;
-    for (let player of Game.players){
-      if (player.name === "Legnehezebb"){
+    for (let player of Game.players) {
+      if (player.name === "Legnehezebb") {
         holeCards = player.hole_cards;
       }
     }
-    if (checkBothCards(card1, card2)) {bet(player.stack);}
+
+    let checkedPair = false;
+    for (let player of Game.players) {
+      checkedPair = checkPair(player, Game.community_cards)
+    }
+
+
+    if (checkBothCards(card1, card2)) {
+      bet(player.stack);
+    }
   }
 
   static showdown(gameState) {
@@ -21,15 +30,14 @@ class Player {
 
 module.exports = Player;
 
-function teamBetsAndCards(Game){
+function teamBetsAndCards(Game) {
   let players = [];
-  for (let player of Game.players){
+  for (let player of Game.players) {
     let playerName, playerBet, playerCards;
-    let playerData = {playerName: player.name, playerBet:player.bet, playerCards: player.hole_cards };
+    let playerData = {playerName: player.name, playerBet: player.bet, playerCards: player.hole_cards};
     players.push(playerData)
   }
 }
-
 
 
 let player;
@@ -49,25 +57,33 @@ function getPlayer(game) {
 function getCards(player) {
   cards = player.hole_cards;
   card2 = cards[0];
-  card2= cards[1];
+  card2 = cards[1];
 }
 
 function checkFirstCard(card1) {
   switch (card1.rank) {
-    case card2.rank: return true;
-    case "A": return true;
-    case "Q": return true;
-    case "K": return true;
+    case card2.rank:
+      return true;
+    case "A":
+      return true;
+    case "Q":
+      return true;
+    case "K":
+      return true;
   }
   return false;
 }
 
 function checkSecondCard(card2) {
   switch (card2.rank) {
-    case card1.rank: return true;
-    case "A": return true;
-    case "Q": return true;
-    case "K": return true;
+    case card1.rank:
+      return true;
+    case "A":
+      return true;
+    case "Q":
+      return true;
+    case "K":
+      return true;
   }
   return false;
 }
@@ -80,6 +96,25 @@ function checkBothCards(card1, card2) {
   return false;
 }
 
+
+function checkPair(player, communityCards) {
+  let cards = [];
+  for (let card of player.hole_cards) {
+    if (cards.includes(card.rank)) {
+      return true;
+    } else {
+      cards.push(card.rank)
+    }
+  }
+  for (let card of communityCards) {
+    if (cards.includes(card.rank)) {
+      return true;
+    } else {
+      cards.push(card.rank);
+    }
+  }
+  return false;
+}
 
 
 
