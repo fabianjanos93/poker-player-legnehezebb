@@ -8,7 +8,7 @@ let card2;
 ///////////////////////////////////////////////////////////////////////
 class Player {
   static get VERSION() {
-    return '0.4.4';
+    return '1.0';
   }
 
   static betRequest(gameState, bet) {
@@ -16,7 +16,7 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
-    if (checkBothCards(card1, card2) || doWehavePair(Game) ) {
+    if (weHaveHighestCard() || doWehavePair(Game) ) {
       bet(player.stack);
     }
     bet(12);
@@ -61,8 +61,10 @@ function getPlayer(game) {
 
 
 function getCards(player) {
-  card1 = player.hole_cards[0];
-  card2 = player.hole_cards[1];
+  if (player.hole_cards) {
+    card1 = player.hole_cards[0];
+    card2 = player.hole_cards[1];
+  }
 }
 
 function checkFirstCard(card1) {
@@ -163,8 +165,10 @@ function weHaveHighestCard() {
     }
   }
 
-  if (card1.rank === getHighestCard(allCards) || card2.rank === getHighestCard(allCards)) {
-    return true;
+  if (card1 && card2) {
+    if (card1.rank === getHighestCard(allCards) || card2.rank === getHighestCard(allCards)) {
+      return true;
+    }
   }
   return false;
 }
