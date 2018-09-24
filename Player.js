@@ -16,12 +16,14 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
-    /*
-    let playerWithPair = [];
-    for (let player of Game.players) {
-      checkPair(player, Game.community_cards, playerWithPair)
+
+    let pairFlag = false
+    if (pairFlag) {
+      let playerWithPair = [];
+      for (let player of Game.players) {
+        checkPair(player, Game.community_cards, playerWithPair)
+      }
     }
-    */
 
 
     if (checkBothCards(card1, card2)) {
