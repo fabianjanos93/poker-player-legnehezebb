@@ -4,6 +4,7 @@ let cards;
 let card1;
 let card2;
 
+let HandPairBooleanFlag = true
 
 ///////////////////////////////////////////////////////////////////////
 class Player {
@@ -16,11 +17,13 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
+    if (card1.rank = card2.rank && HandPairBooleanFlag)
+      bet(player.stack)
 
     if (checkBothCards(card1, card2) /* doWehavePair(Game)*/ ) {
       bet(player.stack);
     }
-    bet(0);
+    bet(12);
   }
 
   static showdown(gameState) {
