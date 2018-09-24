@@ -87,7 +87,6 @@ function checkSecondCard(card2) {
 //returns true if one of the two cards are good, or we have a pair
 function checkBothCards(card1, card2) {
   getPlayer();
-  getCards();
   if (checkFirstCard(card1) || checkSecondCard(card2)) {
     return true;
   }
