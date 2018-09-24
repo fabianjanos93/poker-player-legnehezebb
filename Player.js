@@ -13,3 +13,13 @@ class Player {
 }
 
 module.exports = Player;
+
+let player;
+
+function getPlayer(game) {
+  for (let p in game) {
+    if (player.name === "Legnehezebb") {
+      player = p;
+    }
+  }
+}
