@@ -1,7 +1,9 @@
+let Game;
 let player;
 let cards;
 let card1;
 let card2;
+
 
 ///////////////////////////////////////////////////////////////////////
 class Player {
@@ -10,8 +12,12 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    let Game = gameState.parse();
-    let holeCards;
+    Game = gameState;
+    player = getPlayer(Game);
+    cards = getCards(player);
+    card1 = cards[0];
+    let card2 = cards[1];
+
     if (checkBothCards(card1, card2)) {
       bet(player.stack);
     }
@@ -21,6 +27,8 @@ class Player {
   static showdown(gameState) {
   }
 }
+
+
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////OUR FUNCTIONS//////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
