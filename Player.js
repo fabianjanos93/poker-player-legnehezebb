@@ -31,9 +31,6 @@ function actualHighestBet(game){
 module.exports = Player;
 
 let player;
-let cards;
-let card1;
-let card2;
 
 function getPlayer(game) {
   for (let p in game) {
@@ -43,6 +40,10 @@ function getPlayer(game) {
   }
   getCards(player);
 }
+
+let cards;
+let card1;
+let card2;
 
 function getCards(player) {
   cards = player.hole_cards;
