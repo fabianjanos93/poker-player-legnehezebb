@@ -23,9 +23,11 @@ class Player {
     bet(0);
   }
 
+
   static showdown(gameState) {
   }
 }
+
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////OUR FUNCTIONS//////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
@@ -106,11 +108,13 @@ function checkBothCards(card1, card2) {
 
 function checkPair(player, communityCards, playerWithPair) {
   let cards = [];
-  for (let card of player.hole_cards) {
-    if (cards.includes(card.rank)) {
-      playerWithPair.push(player);
-    } else {
-      cards.push(card.rank)
+  if (player.hole_cards) {
+    for (let card of player.hole_cards) {
+      if (cards.includes(card.rank)) {
+        playerWithPair.push(player);
+      } else {
+        cards.push(card.rank)
+      }
     }
   }
   for (let card of communityCards) {
