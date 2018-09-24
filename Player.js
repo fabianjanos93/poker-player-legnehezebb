@@ -156,7 +156,7 @@ function getHighestCard(listOfCards) {
 
 function weHaveHighestCard() {
   let allCards = [];
-  allCards.push(card1, card2);
+
   for (let player of Game.players) {
     if (player.status === "active" && player.hole_cards) {
       for (let card of player.hole_cards) {
@@ -165,8 +165,8 @@ function weHaveHighestCard() {
     }
   }
 
-  if (card1 && card2) {
-    if (card1.rank === getHighestCard(allCards) || card2.rank === getHighestCard(allCards)) {
+  if (player.hole_cards) {
+    if (player.hole_cards[0].rank === getHighestCard(allCards) || player.hole_cards[1].rank === getHighestCard(allCards)) {
       return true;
     }
   }
