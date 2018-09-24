@@ -4,7 +4,8 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    bet(3);
+    bet(20);
+    gameState.parse();
   }
 
   static showdown(gameState) {
