@@ -15,9 +15,7 @@ class Player {
     console.log(gameState);
     Game = gameState;
     player = gameState.players[gameState.in_action];
-    cards = getCards(player);
-    card1 = cards[0];
-    let card2 = cards[1];
+    cards = getCards(player)
 
     if (checkBothCards(card1, card2)) {
       bet(player.stack);
@@ -65,7 +63,6 @@ function getPlayer(game) {
 
 
 function getCards(player) {
-  cards = player.hole_cards;
   card1 = player.hole_cards[0];
   card2 = player.hole_cards[1];
 }
