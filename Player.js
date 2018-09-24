@@ -16,8 +16,8 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
+    let pairFlag = true;
 
-    let pairFlag = false
     if (pairFlag) {
       let playerWithPair = [];
       for (let player of Game.players) {
@@ -122,13 +122,16 @@ function checkPair(player, communityCards, playerWithPair) {
       cards.push(card.rank)
     }
   }
-  for (let card of communityCards) {
-    if (cards.includes(card.rank)) {
-      playerWithPair.push(player);
-    } else {
-      cards.push(card.rank);
+  if (!communityCards.empty()) {
+    for (let card of communityCards) {
+      if (cards.includes(card.rank)) {
+        playerWithPair.push(player);
+      } else {
+        cards.push(card.rank);
+      }
     }
   }
+
 }
 
 
