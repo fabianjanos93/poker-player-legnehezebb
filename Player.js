@@ -20,7 +20,7 @@ class Player {
       bet(player.stack);
     }
     if (checkBothCards(card1, card2))
-      bet(200);
+      bet(100);
     bet(15);
   }
 
