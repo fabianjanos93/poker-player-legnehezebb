@@ -17,7 +17,7 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
-    if (card1.rank = card2.rank && HandPairBooleanFlag)
+    if (card1.rank == card2.rank && HandPairBooleanFlag)
       bet(player.stack);
 
     if (checkBothCards(card1, card2) || doWehavePair(Game) ) {
