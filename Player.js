@@ -16,7 +16,7 @@ class Player {
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
 
-    
+
     if (checkBothCards(card1, card2) || doWehavePair(Game)) {
       bet(player.stack);
     }
@@ -26,7 +26,6 @@ class Player {
   static showdown(gameState) {
   }
 }
-
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////OUR FUNCTIONS//////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
