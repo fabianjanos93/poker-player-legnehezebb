@@ -4,7 +4,6 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    bet(200);
     let Game = gameState.parse();
     let holeCards;
     for (let player of Game.players){
@@ -12,6 +11,7 @@ class Player {
         holeCards = player.hole_cards;
       }
     }
+    bet(200);
     if (checkBothCards(card1, card2)) {
       bet(player.stack);
     }
