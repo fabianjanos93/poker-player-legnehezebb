@@ -46,7 +46,7 @@ function teamBetsAndCards(Game){
 let player;
 
 function getPlayer(game) {
-  for (let p in game) {
+  for (let p in game.players) {
     if (player.name === "Legnehezebb") {
       player = p;
     }
@@ -60,7 +60,7 @@ let card2;
 
 function getCards(player) {
   cards = player.hole_cards;
-  card2 = cards[0];
+  card1 = cards[0];
   card2= cards[1];
 }
 
