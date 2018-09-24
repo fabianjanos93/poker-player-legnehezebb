@@ -30,6 +30,17 @@ function actualHighestBet(game){
 }
 module.exports = Player;
 
+function teamBetsAndCards(Game){
+  let players = [];
+  for (let player of Game.players){
+    let playerName, playerBet, playerCards;
+    let playerData = {playerName: player.name, playerBet:player.bet, playerCards: player.hole_cards };
+    players.push(playerData)
+  }
+}
+
+
+
 let player;
 
 function getPlayer(game) {
