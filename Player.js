@@ -16,7 +16,6 @@ class Player {
     Game = gameState;
     player = gameState.players[gameState.in_action];
     cards = getCards(player);
-    bet(1000);
     card1 = cards[0];
     let card2 = cards[1];
 
