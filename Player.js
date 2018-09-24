@@ -15,8 +15,8 @@ class Player {
     console.log(gameState);
     Game = gameState;
     player = getPlayer(Game);
-    bet(1000);
     cards = getCards(player);
+    bet(1000);
     card1 = cards[0];
     let card2 = cards[1];
 
