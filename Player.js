@@ -17,7 +17,7 @@ class Player {
     cards = getCards(player);
 
 
-    if (checkBothCards(card1, card2) || doWehavePair(Game)) {
+    if (checkBothCards(card1, card2) /* doWehavePair(Game)*/ ) {
       bet(player.stack);
     }
     bet(0);
