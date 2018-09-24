@@ -4,7 +4,7 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    bet(20);
+    bet(100);
     let Game = gameState.parse();
   }
 
