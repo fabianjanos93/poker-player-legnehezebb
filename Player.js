@@ -4,7 +4,6 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    bet(100);
     let Game = gameState.parse();
     let holeCards;
     for (let player of Game.players){
