@@ -21,12 +21,29 @@ class Player {
   }
 }
 
+function actualHighestBet(game){
+  let max = 0;
+  for(i = 0; i<6 ; i++){
+    let playerInCheck = game.players[i].bet;
+    if (playerInCheck>max);
+      max = playerInCheck;
+  }
+  return max
+}
 module.exports = Player;
 
+function teamBetsAndCards(Game){
+  let players = [];
+  for (let player of Game.players){
+    let playerName, playerBet, playerCards;
+    let playerData = {playerName: player.name, playerBet:player.bet, playerCards: player.hole_cards };
+    players.push(playerData)
+  }
+}
+
+
+
 let player;
-let cards;
-let card1;
-let card2;
 
 function getPlayer(game) {
   for (let p in game) {
@@ -36,6 +53,10 @@ function getPlayer(game) {
   }
   getCards(player);
 }
+
+let cards;
+let card1;
+let card2;
 
 function getCards(player) {
   cards = player.hole_cards;
